@@ -12,20 +12,24 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     public Transform gunArm;
+    public Animator anim;
+
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         mousePosition = Input.mousePosition;
-        screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
+        screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
 
         movePlayer();
+        animatePlayer();
         rotatePlayer();
         rotateGunArm();
     }
@@ -37,6 +41,18 @@ public class PlayerController : MonoBehaviour
         moveInput.Normalize();
 
         rb.velocity = moveInput * moveSpeed;
+    }
+
+    void animatePlayer()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
     }
 
     void rotatePlayer()
