@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public float timeBetweenShots;
+    private float shotCooldown;
     private Vector2 moveInput;
     Vector3 mousePosition;
     Vector3 screenPoint;
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Transform gunArm;
     public Animator anim;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     private Camera mainCamera;
 
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour
         animatePlayer();
         rotatePlayer();
         rotateGunArm();
+        handleShooting();
     }
 
     void movePlayer()
@@ -74,5 +79,25 @@ public class PlayerController : MonoBehaviour
         Vector2 offset = mousePosition - screenPoint;
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         gunArm.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    void handleShooting()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            shotCooldown = timeBetweenShots;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            shotCooldown -= Time.deltaTime;
+
+            if (shotCooldown <= 0)
+            {
+                shotCooldown = timeBetweenShots;
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            }
+        }
     }
 }
