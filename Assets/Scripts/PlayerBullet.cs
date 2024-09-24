@@ -8,6 +8,8 @@ public class PlayerBullet : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject impactEffect;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
@@ -20,6 +22,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
