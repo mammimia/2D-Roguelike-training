@@ -12,12 +12,19 @@ public class EnemyController : MonoBehaviour
 
     public Animator anim;
 
+    public int health = 100;
+
     void Start()
     {
 
     }
 
     void Update()
+    {
+        handleMovement();
+    }
+
+    void handleMovement()
     {
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChase)
         {
@@ -39,6 +46,16 @@ public class EnemyController : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
