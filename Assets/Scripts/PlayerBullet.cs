@@ -10,6 +10,8 @@ public class PlayerBullet : MonoBehaviour
 
     public GameObject impactEffect;
 
+    public int damage = 50;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
@@ -24,6 +26,11 @@ public class PlayerBullet : MonoBehaviour
     {
         Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyController>().takeDamage(damage);
+        }
     }
 
     private void OnBecameInvisible()
