@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public Animator anim;
 
     public int health = 100;
+    public GameObject[] deathSplatter;
 
     void Start()
     {
@@ -56,6 +57,10 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            int splatter = Random.Range(0, deathSplatter.Length);
+            int rotation = Random.Range(0, 4);
+            Instantiate(deathSplatter[splatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90f));
+
         }
     }
 }

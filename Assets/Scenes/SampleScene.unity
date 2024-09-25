@@ -717,6 +717,7 @@ MonoBehaviour:
   rangeToChase: 7
   anim: {fileID: 1330830086}
   health: 100
+  deathSplatter: {fileID: 5164223472095285732, guid: 73805532c391348b888ea7d294a50b95, type: 3}
 --- !u!61 &1330830084
 BoxCollider2D:
   m_ObjectHideFlags: 0
