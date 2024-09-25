@@ -16,6 +16,12 @@ public class EnemyController : MonoBehaviour
     public GameObject[] deathSplatter;
     public GameObject hitEffect;
 
+    public bool shouldShoot;
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
+    private float fireCooldown;
+
     void Start()
     {
 
@@ -24,6 +30,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         handleMovement();
+        if (shouldShoot)
+        {
+            handleShooting();
+        }
     }
 
     void handleMovement()
@@ -62,7 +72,17 @@ public class EnemyController : MonoBehaviour
             int splatter = Random.Range(0, deathSplatter.Length);
             int rotation = Random.Range(0, 4);
             Instantiate(deathSplatter[splatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90f));
+        }
+    }
 
+    void handleShooting()
+    {
+        fireCooldown -= Time.deltaTime;
+
+        if (fireCooldown <= 0)
+        {
+            fireCooldown = fireRate;
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
     }
 }
