@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCamera;
 
+    public SpriteRenderer body;
+
     private void Awake()
     {
         instance = this;

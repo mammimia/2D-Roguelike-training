@@ -938,7 +938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.16
+      value: 0.9000006
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1102,7 +1102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.95
+      value: 7.6900005
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1159,7 +1159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.889999
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1848,6 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
+  damageInvincLength: 1
 --- !u!4 &1907852998
 Transform:
   m_ObjectHideFlags: 0
@@ -1958,6 +1959,7 @@ MonoBehaviour:
   anim: {fileID: 2124247057}
   bulletPrefab: {fileID: 5824955570653878418, guid: af57dbc55c44d4109938dc22437a733c, type: 3}
   firePoint: {fileID: 690356530}
+  body: {fileID: 749591030}
 --- !u!58 &2124247055
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2036,7 +2038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.95
+      value: 7.6900005
       objectReference: {fileID: 0}
     - target: {fileID: 6907980257695650550, guid: 6dc3b24fca75a41d98eb29eefdcd0e95, type: 3}
       propertyPath: m_LocalPosition.y
