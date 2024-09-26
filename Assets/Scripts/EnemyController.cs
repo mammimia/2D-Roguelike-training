@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (body.isVisible)
+        if (body.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             handleMovement();
             if (shouldShoot && Vector3.Distance(PlayerController.instance.transform.position, transform.position) < shootRange)
@@ -40,7 +40,10 @@ public class EnemyController : MonoBehaviour
                 handleShooting();
             }
         }
-
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     void handleMovement()
