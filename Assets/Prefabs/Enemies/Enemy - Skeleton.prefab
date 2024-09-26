@@ -205,6 +205,7 @@ MonoBehaviour:
   bullet: {fileID: 4693000181585205439, guid: a47509062b5f54f2ead5c5ac844c8dd2, type: 3}
   firePoint: {fileID: 6907980256819139425}
   fireRate: 2
+  body: {fileID: 6907980257517228489}
 --- !u!50 &6907980257695650545
 Rigidbody2D:
   serializedVersion: 4

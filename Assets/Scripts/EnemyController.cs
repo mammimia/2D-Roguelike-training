@@ -21,6 +21,9 @@ public class EnemyController : MonoBehaviour
     public Transform firePoint;
     public float fireRate;
     private float fireCooldown;
+    public float shootRange;
+
+    public SpriteRenderer body;
 
     void Start()
     {
@@ -29,11 +32,15 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        handleMovement();
-        if (shouldShoot)
+        if (body.isVisible)
         {
-            handleShooting();
+            handleMovement();
+            if (shouldShoot && Vector3.Distance(PlayerController.instance.transform.position, transform.position) < shootRange)
+            {
+                handleShooting();
+            }
         }
+
     }
 
     void handleMovement()
