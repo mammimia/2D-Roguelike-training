@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float speed;
+    public int damage;
     private Vector3 direction;
 
     void Start()
@@ -22,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // Damage player
+            PlayerHealthController.instance.takeDamage(damage);
         }
 
         Destroy(gameObject);
