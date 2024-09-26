@@ -7,7 +7,7 @@ public class PlayerHealthController : MonoBehaviour
     public static PlayerHealthController instance;
 
     public int currentHealth;
-    public int maxHealth;
+    public int maxHealth = 100;
 
     private void Awake()
     {
@@ -17,6 +17,10 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+
+        UIController.instance.healthSlider.maxValue = maxHealth;
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
     }
 
     void Update()
@@ -32,5 +36,8 @@ public class PlayerHealthController : MonoBehaviour
         {
             PlayerController.instance.gameObject.SetActive(false);
         }
+
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
     }
 }
