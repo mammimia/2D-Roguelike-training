@@ -144,4 +144,9 @@ public class PlayerController : MonoBehaviour
             dashCooldownCounter -= Time.deltaTime;
         }
     }
+
+    public bool isDashing()
+    {
+        return dashActiveCounter > 0;
+    }
 }
