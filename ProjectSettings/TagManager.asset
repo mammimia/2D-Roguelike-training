@@ -42,6 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2169605269
+    locked: 0
+  - name: Objects
+    uniqueID: 3556822143
+    locked: 0
+  - name: Pickups
+    uniqueID: 2020050175
+    locked: 0
+  - name: Enemies
+    uniqueID: 278243983
+    locked: 0
+  - name: Bullets
+    uniqueID: 326948171
+    locked: 0
   - name: Player
     uniqueID: 1564509619
     locked: 0
