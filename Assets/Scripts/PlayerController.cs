@@ -8,6 +8,12 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     public float moveSpeed;
+    private float activeMoveSpeed;
+    public float dashSpeed = 8f;
+    public float dashLength = .5f;
+    public float dashCooldown = 1f;
+    public float dashInvincibility = .5f;
+    private float dashActiveCounter, dashCooldownCounter;
     public float timeBetweenShots;
     private float shotCooldown;
     private Vector2 moveInput;
@@ -33,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        activeMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -46,6 +53,7 @@ public class PlayerController : MonoBehaviour
         rotatePlayer();
         rotateGunArm();
         handleShooting();
+        handleDash();
     }
 
     void movePlayer()
@@ -54,7 +62,7 @@ public class PlayerController : MonoBehaviour
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput.Normalize();
 
-        rb.velocity = moveInput * moveSpeed;
+        rb.velocity = moveInput * activeMoveSpeed;
     }
 
     void animatePlayer()
@@ -107,6 +115,32 @@ public class PlayerController : MonoBehaviour
                 shotCooldown = timeBetweenShots;
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             }
+        }
+    }
+
+    void handleDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && dashCooldownCounter <= 0 && dashActiveCounter <= 0)
+        {
+            activeMoveSpeed = dashSpeed;
+            dashActiveCounter = dashLength;
+            anim.SetTrigger("dash");
+        }
+
+        if (dashActiveCounter > 0)
+        {
+            dashActiveCounter -= Time.deltaTime;
+
+            if (dashActiveCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCooldownCounter = dashCooldown;
+            }
+        }
+
+        if (dashCooldownCounter > 0)
+        {
+            dashCooldownCounter -= Time.deltaTime;
         }
     }
 }
