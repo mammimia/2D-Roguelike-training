@@ -1956,7 +1956,7 @@ MonoBehaviour:
   dashSpeed: 8
   dashLength: 0.5
   dashCooldown: 1
-  dashInvincibility: 0.5
+  dashInvincibilityLength: 0.5
   timeBetweenShots: 0.2
   rb: {fileID: 2124247056}
   gunArm: {fileID: 410863129}

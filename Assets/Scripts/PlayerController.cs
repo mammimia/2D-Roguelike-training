@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed = 8f;
     public float dashLength = .5f;
     public float dashCooldown = 1f;
-    public float dashInvincibility = .5f;
+    public float dashInvincibilityLength = .5f;
     private float dashActiveCounter, dashCooldownCounter;
     public float timeBetweenShots;
     private float shotCooldown;
@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
             activeMoveSpeed = dashSpeed;
             dashActiveCounter = dashLength;
             anim.SetTrigger("dash");
+            PlayerHealthController.instance.makeInvincible(dashInvincibilityLength);
         }
 
         if (dashActiveCounter > 0)

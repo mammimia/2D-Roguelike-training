@@ -46,10 +46,7 @@ public class PlayerHealthController : MonoBehaviour
         {
 
             currentHealth -= damage;
-            invincCooldown = damageInvincLength;
-
-            Color playerBodyColor = PlayerController.instance.body.color;
-            PlayerController.instance.body.color = new Color(playerBodyColor.r, playerBodyColor.b, playerBodyColor.g, 0.5f);
+            makeInvincible(damageInvincLength);
 
             if (currentHealth <= 0)
             {
@@ -60,5 +57,12 @@ public class PlayerHealthController : MonoBehaviour
             UIController.instance.healthSlider.value = currentHealth;
             UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
         }
+    }
+
+    public void makeInvincible(float length)
+    {
+        invincCooldown = length;
+        Color playerBodyColor = PlayerController.instance.body.color;
+        PlayerController.instance.body.color = new Color(playerBodyColor.r, playerBodyColor.b, playerBodyColor.g, 0.5f);
     }
 }
