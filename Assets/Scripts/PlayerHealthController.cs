@@ -54,8 +54,7 @@ public class PlayerHealthController : MonoBehaviour
                 UIController.instance.deathScreen.SetActive(true);
             }
 
-            UIController.instance.healthSlider.value = currentHealth;
-            UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
+            updateHealthUI();
         }
     }
 
@@ -64,5 +63,22 @@ public class PlayerHealthController : MonoBehaviour
         invincCooldown = length;
         Color playerBodyColor = PlayerController.instance.body.color;
         PlayerController.instance.body.color = new Color(playerBodyColor.r, playerBodyColor.b, playerBodyColor.g, 0.5f);
+    }
+
+    public void heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        updateHealthUI();
+    }
+
+    private void updateHealthUI()
+    {
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth + " / " + maxHealth;
     }
 }
