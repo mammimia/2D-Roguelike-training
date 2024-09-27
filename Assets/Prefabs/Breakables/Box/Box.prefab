@@ -107,6 +107,11 @@ MonoBehaviour:
   - {fileID: 5339585301890188262, guid: 0a01a02cf9f3843e2b9a88d65e2e3322, type: 3}
   - {fileID: 4388031558277455947, guid: eae7e083e4df5402a8a6dde456fe0572, type: 3}
   maxPieces: 5
+  shouldDrop: 1
+  dropableItems:
+  - {fileID: 1406798392583083917, guid: cd9fcfde090ec47bfb5207f83984a1d5, type: 3}
+  - {fileID: 4014376822366119808, guid: de8a3c50696f7490dbb9e71008ce40e4, type: 3}
+  dropRate: 35
 --- !u!61 &8440681155340567453
 BoxCollider2D:
   m_ObjectHideFlags: 0
