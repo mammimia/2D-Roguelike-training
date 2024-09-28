@@ -14,7 +14,7 @@ public class BreakableController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && PlayerController.instance.isDashing())
+        if ((other.tag == "Player" && PlayerController.instance.isDashing()) || other.tag == "PlayerBullet")
         {
             Destroy(gameObject);
             AudioManager.instance.PlaySFX(0);
