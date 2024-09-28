@@ -47,11 +47,13 @@ public class PlayerHealthController : MonoBehaviour
 
             currentHealth -= damage;
             makeInvincible(damageInvincLength);
+            AudioManager.instance.PlaySFX(11);
 
             if (currentHealth <= 0)
             {
                 PlayerController.instance.gameObject.SetActive(false);
                 UIController.instance.deathScreen.SetActive(true);
+                AudioManager.instance.PlaySFX(9);
                 AudioManager.instance.playGameOverMusic();
             }
 

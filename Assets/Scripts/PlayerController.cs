@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             shotCooldown = timeBetweenShots;
+            AudioManager.instance.PlaySFX(12);
         }
 
         if (Input.GetMouseButton(0))
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 shotCooldown = timeBetweenShots;
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                AudioManager.instance.PlaySFX(12);
             }
         }
     }
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour
             dashActiveCounter = dashLength;
             anim.SetTrigger("dash");
             PlayerHealthController.instance.makeInvincible(dashInvincibilityLength);
+            AudioManager.instance.PlaySFX(8);
         }
 
         if (dashActiveCounter > 0)

@@ -17,6 +17,7 @@ public class BreakableController : MonoBehaviour
         if (other.tag == "Player" && PlayerController.instance.isDashing())
         {
             Destroy(gameObject);
+            AudioManager.instance.PlaySFX(0);
             handleBrokenPieces();
             handleItemDrop();
         }
