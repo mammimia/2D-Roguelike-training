@@ -10,6 +10,11 @@ public class CameraController : MonoBehaviour
 
     public Transform target;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
 
@@ -21,5 +26,10 @@ public class CameraController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
         }
+    }
+
+    public void setTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }
