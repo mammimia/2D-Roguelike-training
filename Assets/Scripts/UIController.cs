@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIController : MonoBehaviour
     public Image fadeSceen;
     public float fadeSpeed = 2.5f;
     private bool fadeToBlack = false, fadeOutBlack = true;
+
+    public string newGameScene, mainMenuScene;
 
     private void Awake()
     {
@@ -57,5 +60,15 @@ public class UIController : MonoBehaviour
     {
         fadeToBlack = true;
         fadeOutBlack = false;
+    }
+
+    public void startNewGame()
+    {
+        SceneManager.LoadScene(newGameScene);
+    }
+
+    public void returnMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene);
     }
 }
