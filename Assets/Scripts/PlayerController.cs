@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer body;
 
+    [HideInInspector]
+    public bool canMove = true;
+
     private void Awake()
     {
         instance = this;
@@ -45,15 +48,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePosition = Input.mousePosition;
-        screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
+        if (canMove)
+        {
+            mousePosition = Input.mousePosition;
+            screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
 
-        movePlayer();
-        animatePlayer();
-        rotatePlayer();
-        rotateGunArm();
-        handleShooting();
-        handleDash();
+            movePlayer();
+            animatePlayer();
+            rotatePlayer();
+            rotateGunArm();
+            handleShooting();
+            handleDash();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+            anim.SetBool("isMoving", false);
+        }
     }
 
     void movePlayer()
