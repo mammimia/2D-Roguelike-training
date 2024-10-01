@@ -19,6 +19,8 @@ public class UIController : MonoBehaviour
 
     public string newGameScene, mainMenuScene;
 
+    public GameObject pauseMenu;
+
     private void Awake()
     {
         instance = this;
@@ -65,10 +67,17 @@ public class UIController : MonoBehaviour
     public void startNewGame()
     {
         SceneManager.LoadScene(newGameScene);
+        Time.timeScale = 1f;
     }
 
     public void returnMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void resume()
+    {
+        LevelManager.instance.pauseUnpause();
     }
 }

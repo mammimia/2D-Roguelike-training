@@ -23,7 +23,10 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            pauseUnpause();
+        }
     }
 
     public IEnumerator endLevel()
@@ -33,5 +36,21 @@ public class LevelManager : MonoBehaviour
         UIController.instance.startFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
         SceneManager.LoadScene(nextLevel);
+    }
+
+    public void pauseUnpause()
+    {
+        if (UIController.instance.pauseMenu.activeInHierarchy)
+        {
+            UIController.instance.pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            PlayerController.instance.canMove = true;
+        }
+        else
+        {
+            UIController.instance.pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            PlayerController.instance.canMove = false;
+        }
     }
 }
