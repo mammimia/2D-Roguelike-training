@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
     {
         AudioManager.instance.playWinMusic();
         PlayerController.instance.canMove = false;
+        UIController.instance.startFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
         SceneManager.LoadScene(nextLevel);
     }

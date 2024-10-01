@@ -12,6 +12,10 @@ public class UIController : MonoBehaviour
 
     public GameObject deathScreen;
 
+    public Image fadeSceen;
+    public float fadeSpeed = 2.5f;
+    private bool fadeToBlack = false, fadeOutBlack = true;
+
     private void Awake()
     {
         instance = this;
@@ -19,11 +23,39 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void Update()
     {
+        handleFading();
+    }
 
+    public void handleFading()
+    {
+        if (fadeOutBlack)
+        {
+            fadeSceen.color = new Color(fadeSceen.color.r, fadeSceen.color.g, fadeSceen.color.b, Mathf.MoveTowards(fadeSceen.color.a, 0f, fadeSpeed * Time.deltaTime));
+
+            if (fadeSceen.color.a == 0f)
+            {
+                fadeOutBlack = false;
+            }
+        }
+
+        if (fadeToBlack)
+        {
+            fadeSceen.color = new Color(fadeSceen.color.r, fadeSceen.color.g, fadeSceen.color.b, Mathf.MoveTowards(fadeSceen.color.a, 1f, fadeSpeed * Time.deltaTime));
+
+            if (fadeSceen.color.a == 1f)
+            {
+                fadeToBlack = false;
+            }
+        }
+    }
+
+    public void startFadeToBlack()
+    {
+        fadeToBlack = true;
+        fadeOutBlack = false;
     }
 }
