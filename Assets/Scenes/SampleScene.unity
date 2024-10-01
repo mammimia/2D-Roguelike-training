@@ -7528,7 +7528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitToLoad: 4
-  nextLevel: TestScene
+  nextLevel: Victory
 --- !u!4 &1909712100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4789534794623014415, guid: 7fff6eb3a4a054d0eb7f9c1b7578e92c, type: 3}
