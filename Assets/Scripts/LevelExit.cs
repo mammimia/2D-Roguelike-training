@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    public string levelToLoad;
-
     void Start()
     {
 
@@ -21,7 +18,7 @@ public class LevelExit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene(levelToLoad);
+            StartCoroutine(LevelManager.instance.endLevel());
         }
     }
 }
