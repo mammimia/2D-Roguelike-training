@@ -162,6 +162,23 @@ MonoBehaviour:
   roomLayer:
     serializedVersion: 2
     m_Bits: 32768
+  roomLayoutList: []
+  roomLayouts:
+    singleUp: {fileID: 3723192214171472697, guid: 6d5faefe223874004bbe1d7804368faa, type: 3}
+    singleDown: {fileID: 1182726325992904852, guid: 1d3dcc9cd2c0b4099bf64ed73f53242b, type: 3}
+    singleRight: {fileID: 6045286809778717528, guid: 21101250b597f4ca58ee6e1bf0743698, type: 3}
+    singleLeft: {fileID: 2617040205459490652, guid: 6869a26d0dce3471cbb841781bf84af3, type: 3}
+    doubleUpDown: {fileID: 6179491905399884097, guid: 0bb3b40a76d7c4cf5b111c66027de8e0, type: 3}
+    doubleRightLeft: {fileID: 881355261700347337, guid: ee31f2dec153e4feb99da1370c1adabc, type: 3}
+    doubleUpRight: {fileID: 1764423843803912261, guid: 4438de3f281de4eb3b7a26f975857688, type: 3}
+    doubleRightDown: {fileID: 6707590296241694520, guid: c5b9c9d56a9b14504b184de3bc3b3850, type: 3}
+    doubleDownLeft: {fileID: 1223654516418327693, guid: 913a6fa8c9f6e4f078010cbd94847167, type: 3}
+    doubleUpLeft: {fileID: 1981767796602396690, guid: 225a571014a954d9ebb94bd278a3bd58, type: 3}
+    tripleUpRightDown: {fileID: 5999431542565689421, guid: 5a6453a8da1e7440b8432a2f4eb3d4a6, type: 3}
+    tripleRightDownLeft: {fileID: 3321548163054024149, guid: 7d8e30b1125d94bde855da59af207f05, type: 3}
+    tripleUpDownLeft: {fileID: 8596651319166199897, guid: b74dea228d4b944faa27d2c1da92cf0c, type: 3}
+    tripleUpRightLeft: {fileID: 5044237577852678902, guid: 11671e0d194724e4a91012576417c568, type: 3}
+    fourway: {fileID: 7023571881035651383, guid: 867a9b0b4b8ee4859bbfaf984e9a3fde, type: 3}
 --- !u!4 &137869203
 Transform:
   m_ObjectHideFlags: 0
