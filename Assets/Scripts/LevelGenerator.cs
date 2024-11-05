@@ -25,18 +25,18 @@ public class LevelGenerator : MonoBehaviour
     public float xOffset = 18;
     public float yOffset = 10;
 
+    public LayerMask roomLayer;
+
     // Start is called before the first frame update
     void Start()
     {
         // Create starting room
         GameObject startRoom = createRoom();
         startRoom.GetComponent<SpriteRenderer>().color = startColor;
-        moveGenerationPoint();
 
         for (int i = 0; i < distanceToEnd; i++)
         {
             GameObject newRoom = createRoom();
-            moveGenerationPoint();
 
             if (i == distanceToEnd - 1)
             {
@@ -47,12 +47,24 @@ public class LevelGenerator : MonoBehaviour
 
     private GameObject createRoom()
     {
-        return Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation);
+        GameObject newRoom = Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation);
+
+        selectDirection();
+        moveGenerationPoint();
+
+        // If there is a room on new generation point
+        while (Physics2D.OverlapCircle(generatorPoint.position, .2f, roomLayer))
+        {
+            // Move to same direction to break the infinite loop
+            // In case there is 4 room arround a room
+            moveGenerationPoint();
+        }
+
+        return newRoom;
     }
 
     private void moveGenerationPoint()
     {
-        selectedDirection = (Directon)Random.Range(0, 4);
         switch (selectedDirection)
         {
             case Directon.UP:
@@ -68,5 +80,10 @@ public class LevelGenerator : MonoBehaviour
                 generatorPoint.position -= new Vector3(xOffset, 0, 0);
                 break;
         }
+    }
+
+    private void selectDirection()
+    {
+        selectedDirection = (Directon)Random.Range(0, 4);
     }
 }
