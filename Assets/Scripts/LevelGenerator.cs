@@ -20,7 +20,7 @@ public class LevelGenerator : MonoBehaviour
         LEFT
     }
 
-    public Directon selectedDirection;
+    private Directon selectedDirection;
 
     public float xOffset = 18;
     public float yOffset = 10;
@@ -29,20 +29,30 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         // Create starting room
-        Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation).GetComponent<SpriteRenderer>().color = startColor;
-
-        selectedDirection = (Directon)Random.Range(0, 4);
+        GameObject startRoom = createRoom();
+        startRoom.GetComponent<SpriteRenderer>().color = startColor;
         moveGenerationPoint();
+
+        for (int i = 0; i < distanceToEnd; i++)
+        {
+            GameObject newRoom = createRoom();
+            moveGenerationPoint();
+
+            if (i == distanceToEnd - 1)
+            {
+                newRoom.GetComponent<SpriteRenderer>().color = endColor;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameObject createRoom()
     {
-
+        return Instantiate(layoutRoom, generatorPoint.position, generatorPoint.rotation);
     }
 
-    public void moveGenerationPoint()
+    private void moveGenerationPoint()
     {
+        selectedDirection = (Directon)Random.Range(0, 4);
         switch (selectedDirection)
         {
             case Directon.UP:
@@ -58,6 +68,5 @@ public class LevelGenerator : MonoBehaviour
                 generatorPoint.position -= new Vector3(xOffset, 0, 0);
                 break;
         }
-
     }
 }
