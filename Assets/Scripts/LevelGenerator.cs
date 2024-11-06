@@ -28,9 +28,38 @@ public class LevelGenerator : MonoBehaviour
     public LayerMask roomLayer;
 
     private GameObject endRoom;
-    public List<GameObject> roomLayoutList = new List<GameObject>();
+    private List<GameObject> roomLayoutList = new List<GameObject>();
+    private List<GameObject> generatedRoomOutlines = new List<GameObject>();
 
     public RoomPrefabs roomLayouts;
+
+    public RoomCenter startRoomCenter, endRoomCenter;
+    public List<RoomCenter> potentialRoomCenters;
+    private Dictionary<int, GameObject> layoutMap;
+
+
+    void Awake()
+    {
+        // Dictionary to map each layout key to the corresponding room layout prefab
+        layoutMap = new Dictionary<int, GameObject>
+        {
+        { 1, roomLayouts.singleUp },
+        { 2, roomLayouts.singleRight },
+        { 3, roomLayouts.doubleUpRight },
+        { 4, roomLayouts.singleDown },
+        { 5, roomLayouts.doubleUpDown },
+        { 6, roomLayouts.doubleRightDown },
+        { 7, roomLayouts.tripleUpRightDown },
+        { 8, roomLayouts.singleLeft },
+        { 9, roomLayouts.doubleUpLeft },
+        { 10, roomLayouts.doubleRightLeft },
+        { 11, roomLayouts.tripleUpRightLeft },
+        { 12, roomLayouts.doubleDownLeft },
+        { 13, roomLayouts.tripleUpDownLeft },
+        { 14, roomLayouts.tripleRightDownLeft },
+        { 15, roomLayouts.fourway },
+        };
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +93,31 @@ public class LevelGenerator : MonoBehaviour
         }
 
         createRoomOutline(endRoom.transform.position);
+
+        foreach (GameObject outline in generatedRoomOutlines)
+        {
+            bool shouldGenerateCenter = true;
+
+            if (outline.transform.position == Vector3.zero)
+            {
+                Instantiate(startRoomCenter, outline.transform.position, Quaternion.identity);
+                shouldGenerateCenter = false;
+            }
+
+            if (outline.transform.position == endRoom.transform.position)
+            {
+                Instantiate(endRoomCenter, outline.transform.position, Quaternion.identity);
+                shouldGenerateCenter = false;
+            }
+
+            if (shouldGenerateCenter)
+            {
+                int randomCenter = Random.Range(0, potentialRoomCenters.Count);
+
+                RoomCenter roomCenter = Instantiate(potentialRoomCenters[randomCenter], outline.transform.position, Quaternion.identity);
+                roomCenter.room = outline.GetComponent<RoomController>();
+            }
+        }
     }
 
     private GameObject createRoom()
@@ -124,30 +178,16 @@ public class LevelGenerator : MonoBehaviour
         if (Physics2D.OverlapCircle(roomPosition - new Vector3(xOffset, 0f, 0f), overlapRadius))
             layoutKey |= 8; // Left
 
-        // Dictionary to map each layout key to the corresponding room layout prefab
-        Dictionary<int, GameObject> layoutMap = new Dictionary<int, GameObject>
-    {
-        { 1, roomLayouts.singleUp },
-        { 2, roomLayouts.singleRight },
-        { 3, roomLayouts.doubleUpRight },
-        { 4, roomLayouts.singleDown },
-        { 5, roomLayouts.doubleUpDown },
-        { 6, roomLayouts.doubleRightDown },
-        { 7, roomLayouts.tripleUpRightDown },
-        { 8, roomLayouts.singleLeft },
-        { 9, roomLayouts.doubleUpLeft },
-        { 10, roomLayouts.doubleRightLeft },
-        { 11, roomLayouts.tripleUpRightLeft },
-        { 12, roomLayouts.doubleDownLeft },
-        { 13, roomLayouts.tripleUpDownLeft },
-        { 14, roomLayouts.tripleRightDownLeft },
-        { 15, roomLayouts.fourway },
-    };
+        Debug.Log(layoutKey);
+        Debug.Log(layoutMap.ContainsKey(layoutKey));
+        Debug.Log(layoutMap[layoutKey]);
+        Debug.Log(roomPosition);
 
-        // Instantiate the room layout based on the layout key
+        // Instantiate the room layout prefab corresponding to the layout key
         if (layoutMap.TryGetValue(layoutKey, out GameObject layoutPrefab))
         {
-            Instantiate(layoutPrefab, roomPosition, Quaternion.identity);
+            GameObject roomOutline = Instantiate(layoutPrefab, roomPosition, Quaternion.identity);
+            generatedRoomOutlines.Add(roomOutline);
         }
     }
 }
