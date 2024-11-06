@@ -97,26 +97,28 @@ public class LevelGenerator : MonoBehaviour
         foreach (GameObject outline in generatedRoomOutlines)
         {
             bool shouldGenerateCenter = true;
+            RoomCenter roomCenter = null;
 
             if (outline.transform.position == Vector3.zero)
             {
-                Instantiate(startRoomCenter, outline.transform.position, Quaternion.identity);
+                roomCenter = Instantiate(startRoomCenter, outline.transform.position, Quaternion.identity);
                 shouldGenerateCenter = false;
             }
 
             if (outline.transform.position == endRoom.transform.position)
             {
-                Instantiate(endRoomCenter, outline.transform.position, Quaternion.identity);
+                roomCenter = Instantiate(endRoomCenter, outline.transform.position, Quaternion.identity);
                 shouldGenerateCenter = false;
             }
 
             if (shouldGenerateCenter)
             {
                 int randomCenter = Random.Range(0, potentialRoomCenters.Count);
-
-                RoomCenter roomCenter = Instantiate(potentialRoomCenters[randomCenter], outline.transform.position, Quaternion.identity);
-                roomCenter.room = outline.GetComponent<RoomController>();
+                roomCenter = Instantiate(potentialRoomCenters[randomCenter], outline.transform.position, Quaternion.identity);
             }
+
+            roomCenter.room = outline.GetComponent<RoomController>();
+
         }
     }
 
@@ -177,11 +179,6 @@ public class LevelGenerator : MonoBehaviour
             layoutKey |= 4; // Down
         if (Physics2D.OverlapCircle(roomPosition - new Vector3(xOffset, 0f, 0f), overlapRadius))
             layoutKey |= 8; // Left
-
-        Debug.Log(layoutKey);
-        Debug.Log(layoutMap.ContainsKey(layoutKey));
-        Debug.Log(layoutMap[layoutKey]);
-        Debug.Log(roomPosition);
 
         // Instantiate the room layout prefab corresponding to the layout key
         if (layoutMap.TryGetValue(layoutKey, out GameObject layoutPrefab))
