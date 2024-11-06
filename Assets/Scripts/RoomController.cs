@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
+    [HideInInspector]
     public bool closeWhenEntered;
 
     public GameObject[] doors;
