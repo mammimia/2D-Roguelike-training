@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    public bool closeWhenEntered, openWhenEnemiesCleared;
+    public bool closeWhenEntered;
 
     public GameObject[] doors;
 
-    public List<GameObject> enemies = new List<GameObject>();
-
-    private bool roomActive;
+    [HideInInspector]
+    public bool isActive;
 
     void Start()
     {
@@ -19,27 +18,18 @@ public class RoomController : MonoBehaviour
 
     void Update()
     {
-        if (roomActive && enemies.Count > 0 && openWhenEnemiesCleared)
+
+    }
+
+
+    public void openDoors()
+    {
+        foreach (GameObject door in doors)
         {
-            for (int i = 0; i < enemies.Count; i++)
-            {
-                if (enemies[i] == null)
-                {
-                    enemies.RemoveAt(i);
-                    i--;
-                }
-            }
-
-            if (enemies.Count == 0)
-            {
-                foreach (GameObject door in doors)
-                {
-                    door.SetActive(false);
-                }
-
-                closeWhenEntered = false;
-            }
+            door.SetActive(false);
         }
+
+        closeWhenEntered = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +46,7 @@ public class RoomController : MonoBehaviour
                 }
             }
 
-            roomActive = true;
+            isActive = true;
         }
     }
 
@@ -64,7 +54,7 @@ public class RoomController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            roomActive = false;
+            isActive = false;
         }
     }
 }
