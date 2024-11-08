@@ -30,7 +30,7 @@ public class PlayerBullet : MonoBehaviour
 
         if (other.tag == "Enemy")
         {
-            other.GetComponent<EnemyController>().takeDamage(damage);
+            other.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 
