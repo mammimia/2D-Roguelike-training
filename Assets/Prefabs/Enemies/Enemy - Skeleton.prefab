@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6907980257695650550}
   - component: {fileID: 6907980257695650551}
-  - component: {fileID: 6907980257695650544}
+  - component: {fileID: 6810495976729386456}
   - component: {fileID: 6907980257695650545}
   - component: {fileID: 6907980257695650549}
   m_Layer: 10
@@ -178,7 +178,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4812498, y: 0.92827463}
   m_EdgeRadius: 0
---- !u!114 &6907980257695650544
+--- !u!114 &6810495976729386456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,26 +187,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6907980257695650546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41a86e59690f4475fa2dfc7961b1dd92, type: 3}
+  m_Script: {fileID: 11500000, guid: f07098c7981ac4c3ca4d6eb5491d47ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6907980257695650545}
-  moveSpeed: 3
-  rangeToChase: 3
-  anim: {fileID: 6907980257695650549}
-  health: 100
-  deathSplatter:
-  - {fileID: 5164223472095285732, guid: 73805532c391348b888ea7d294a50b95, type: 3}
-  - {fileID: 3121521163954197412, guid: c189a26ecfbcd46acac40a43ba96c5c8, type: 3}
-  - {fileID: 2861909073891254123, guid: 61ca2431c3d484fa9b18c5a8c7f175f1, type: 3}
-  - {fileID: 1453415774945680418, guid: dfdc61c0b1fbc4d15a07537ce116f237, type: 3}
-  hitEffect: {fileID: 4899328658703301139, guid: d0ec7b84597b7444bbf28975824a7368, type: 3}
-  shouldShoot: 1
-  bullet: {fileID: 4693000181585205439, guid: a47509062b5f54f2ead5c5ac844c8dd2, type: 3}
-  firePoint: {fileID: 6907980256819139425}
-  fireRate: 2
-  shootRange: 10
-  body: {fileID: 6907980257517228489}
+  core:
+    rb: {fileID: 6907980257695650545}
+    anim: {fileID: 6907980257695650549}
+    body: {fileID: 6907980257517228489}
+    health: 100
+    hitEffect: {fileID: 4899328658703301139, guid: d0ec7b84597b7444bbf28975824a7368, type: 3}
+    deathSplatter:
+    - {fileID: 5164223472095285732, guid: 73805532c391348b888ea7d294a50b95, type: 3}
+    - {fileID: 3121521163954197412, guid: c189a26ecfbcd46acac40a43ba96c5c8, type: 3}
+    - {fileID: 2861909073891254123, guid: 61ca2431c3d484fa9b18c5a8c7f175f1, type: 3}
+    - {fileID: 1453415774945680418, guid: dfdc61c0b1fbc4d15a07537ce116f237, type: 3}
+  shooting:
+    shouldShoot: 1
+    bullet: {fileID: 4693000181585205439, guid: a47509062b5f54f2ead5c5ac844c8dd2, type: 3}
+    firePoint: {fileID: 6907980256819139425}
+    fireRate: 2
+    fireCooldown: 0
+    shootRange: 8
+  movement:
+    shouldMove: 1
+    moveSpeed: 2
+    moveDirection: {x: 0, y: 0, z: 0}
+  rangeToChase: 5
 --- !u!50 &6907980257695650545
 Rigidbody2D:
   serializedVersion: 4
