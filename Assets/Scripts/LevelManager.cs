@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
 
     public string nextLevel;
 
+    public int currentCoins;
+
     void Awake()
     {
         instance = this;
@@ -51,6 +53,19 @@ public class LevelManager : MonoBehaviour
             UIController.instance.pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             PlayerController.instance.canMove = false;
+        }
+    }
+
+    public void getCoins(int amount)
+    {
+        currentCoins += amount;
+    }
+
+    public void spendCoins(int amount)
+    {
+        if (currentCoins >= amount)
+        {
+            currentCoins -= amount;
         }
     }
 }
