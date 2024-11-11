@@ -111,6 +111,8 @@ MonoBehaviour:
   dropableItems:
   - {fileID: 1406798392583083917, guid: cd9fcfde090ec47bfb5207f83984a1d5, type: 3}
   - {fileID: 4014376822366119808, guid: de8a3c50696f7490dbb9e71008ce40e4, type: 3}
+  - {fileID: 6258498007217000730, guid: a2a3b0b4e0ec9410f9f9f412dfab218d, type: 3}
+  - {fileID: 6258498007217000730, guid: a2a3b0b4e0ec9410f9f9f412dfab218d, type: 3}
   dropRate: 35
 --- !u!61 &8440681155340567453
 BoxCollider2D:
