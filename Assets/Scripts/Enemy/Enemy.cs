@@ -11,6 +11,8 @@ public class EnemyCore
     public int health = 100;
     public GameObject hitEffect;
     public GameObject[] deathSplatter;
+    [HideInInspector]
+    public Dropable dropable;
 }
 
 [System.Serializable]
@@ -39,6 +41,11 @@ public class Enemy : MonoBehaviour
     public EnemyCore core;
     public Shooting shooting;
     public Movement movement;
+
+    private void Awake()
+    {
+        core.dropable = GetComponent<Dropable>();
+    }
 
     void Update()
     {
@@ -79,6 +86,7 @@ public class Enemy : MonoBehaviour
         int splatter = Random.Range(0, core.deathSplatter.Length);
         int rotation = Random.Range(0, 4);
         Instantiate(core.deathSplatter[splatter], transform.position, Quaternion.Euler(0f, 0f, rotation * 90f));
+        core.dropable?.handleItemDrop();
     }
 
     protected virtual void Shoot()

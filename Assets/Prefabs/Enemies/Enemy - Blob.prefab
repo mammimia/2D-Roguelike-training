@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4764237242068862024}
   - component: {fileID: 4764237242068862025}
   - component: {fileID: 4764237242068862065}
+  - component: {fileID: 8942923153062394975}
   - component: {fileID: 4764237242068862064}
   - component: {fileID: 4764237242068862031}
   - component: {fileID: 4764237242068862027}
@@ -87,6 +88,7 @@ MonoBehaviour:
     - {fileID: 3121521163954197412, guid: c189a26ecfbcd46acac40a43ba96c5c8, type: 3}
     - {fileID: 2861909073891254123, guid: 61ca2431c3d484fa9b18c5a8c7f175f1, type: 3}
     - {fileID: 1453415774945680418, guid: dfdc61c0b1fbc4d15a07537ce116f237, type: 3}
+    dropable: {fileID: 0}
   shooting:
     shouldShoot: 0
     bullet: {fileID: 0}
@@ -101,6 +103,22 @@ MonoBehaviour:
   rangeToChase: 3
   wanderTime: 5
   waitTime: 2
+--- !u!114 &8942923153062394975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764237242068862028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56035cc5863fc484eb256da80c2c041e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldDrop: 1
+  dropableItems:
+  - {fileID: 6258498007217000730, guid: a2a3b0b4e0ec9410f9f9f412dfab218d, type: 3}
+  dropRate: 20
 --- !u!114 &4764237242068862064
 MonoBehaviour:
   m_ObjectHideFlags: 0
