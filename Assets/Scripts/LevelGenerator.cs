@@ -7,8 +7,11 @@ public class LevelGenerator : MonoBehaviour
     public GameObject layoutRoom;
 
     public int distanceToEnd;
+    public bool includeShop;
+    public int minDistanceToShop;
+    public int maxDistanceToShop;
 
-    public Color startColor, endColor;
+    public Color startColor, endColor, shopColor;
 
     public Transform generatorPoint;
 
@@ -27,13 +30,13 @@ public class LevelGenerator : MonoBehaviour
 
     public LayerMask roomLayer;
 
-    private GameObject endRoom;
+    private GameObject endRoom, shopRoom;
     private List<GameObject> roomLayoutList = new List<GameObject>();
     private List<GameObject> generatedRoomOutlines = new List<GameObject>();
 
     public RoomPrefabs roomLayouts;
 
-    public RoomCenter startRoomCenter, endRoomCenter;
+    public RoomCenter startRoomCenter, endRoomCenter, shopRoomCenter;
     public List<RoomCenter> potentialRoomCenters;
     private Dictionary<int, GameObject> layoutMap;
 
@@ -84,6 +87,15 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        if (includeShop)
+        {
+            int shopPosition = Random.Range(minDistanceToShop, maxDistanceToShop + 1);
+            shopRoom = roomLayoutList[shopPosition];
+            roomLayoutList.RemoveAt(shopPosition);
+            shopRoom.GetComponent<SpriteRenderer>().color = shopColor;
+            createRoomOutline(shopRoom.transform.position);
+        }
+
         // Create room outlines
         createRoomOutline(Vector3.zero);
 
@@ -111,11 +123,18 @@ public class LevelGenerator : MonoBehaviour
                 shouldGenerateCenter = false;
             }
 
+            if (includeShop && outline.transform.position == shopRoom.transform.position)
+            {
+                roomCenter = Instantiate(shopRoomCenter, outline.transform.position, Quaternion.identity);
+                shouldGenerateCenter = false;
+            }
+
             if (shouldGenerateCenter)
             {
                 int randomCenter = Random.Range(0, potentialRoomCenters.Count);
                 roomCenter = Instantiate(potentialRoomCenters[randomCenter], outline.transform.position, Quaternion.identity);
             }
+
 
             roomCenter.room = outline.GetComponent<RoomController>();
 

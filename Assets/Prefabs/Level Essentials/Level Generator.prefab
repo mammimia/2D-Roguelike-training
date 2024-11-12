@@ -78,8 +78,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layoutRoom: {fileID: 3275094026678604049, guid: aed38d898205c4c14b1acadc13d3b536, type: 3}
   distanceToEnd: 10
+  includeShop: 1
+  minDistanceToShop: 3
+  maxDistanceToShop: 7
   startColor: {r: 0.004494493, g: 0.8600095, b: 0.9528302, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
+  shopColor: {r: 1, g: 0.56619936, b: 0, a: 1}
   generatorPoint: {fileID: 3249463265053392800}
   xOffset: 18
   yOffset: 10
@@ -104,6 +108,7 @@ MonoBehaviour:
     fourway: {fileID: 7023571881035651383, guid: 867a9b0b4b8ee4859bbfaf984e9a3fde, type: 3}
   startRoomCenter: {fileID: 5059840570708603671, guid: 39324664453bc453ba27a248584d442f, type: 3}
   endRoomCenter: {fileID: 269979489673919676, guid: b02f7938876384ad1b0b7f1b6192ca6c, type: 3}
+  shopRoomCenter: {fileID: 8271129038698441125, guid: a30124d0919b04e53a8cd7d29ae314ed, type: 3}
   potentialRoomCenters:
   - {fileID: 6079364534180991449, guid: 702473cb5fa6c4eb4b3620a58bcb337f, type: 3}
   - {fileID: 8176367160522435661, guid: ebd6c34c485df4f5d819ab2f1b3cb83d, type: 3}
