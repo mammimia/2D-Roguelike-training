@@ -64,8 +64,7 @@ public class ShopItem : MonoBehaviour
 
     private void UpgradePlayerHealth()
     {
-        // Implement max health logic here
-        Debug.Log("Max health upgraded.");
+        PlayerHealthController.instance.upgradeMaxHealth(10);
     }
 
     private void GrantPlayerWeapon()

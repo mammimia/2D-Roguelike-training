@@ -79,6 +79,14 @@ public class PlayerHealthController : MonoBehaviour
         updateHealthUI();
     }
 
+    public void upgradeMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        currentHealth = maxHealth;
+
+        updateHealthUI();
+    }
+
     private void updateHealthUI()
     {
         UIController.instance.healthSlider.value = currentHealth;
