@@ -49,9 +49,15 @@ public class ShopItem : MonoBehaviour
                     GrantPlayerWeapon();
                     break;
             }
+
+            gameObject.SetActive(false);
+            inBuyZone = false;
+
+            AudioManager.instance.PlaySFX(18);
         }
         else
         {
+            AudioManager.instance.PlaySFX(19);
             Debug.Log("Not enough coins to purchase item.");
         }
     }

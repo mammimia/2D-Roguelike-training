@@ -543,11 +543,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &772449160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4788840582739412382, guid: 89c51252d2a1641aab2aae4bf535548c, type: 3}
-  m_PrefabInstance: {fileID: 858142391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &858142391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,14 +598,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6964170331249723867, guid: 89c51252d2a1641aab2aae4bf535548c, type: 3}
-      propertyPath: itemCost
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6964170331249723867, guid: 89c51252d2a1641aab2aae4bf535548c, type: 3}
-      propertyPath: purchaseMessage
-      value: 
-      objectReference: {fileID: 772449160}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89c51252d2a1641aab2aae4bf535548c, type: 3}
 --- !u!1 &883214499
@@ -1121,7 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252619263353332826, guid: d37095e26a8654f429444f6dfbde2545, type: 3}
       propertyPath: currentCoins
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37095e26a8654f429444f6dfbde2545, type: 3}

@@ -105,5 +105,6 @@ MonoBehaviour:
   startRoomCenter: {fileID: 5059840570708603671, guid: 39324664453bc453ba27a248584d442f, type: 3}
   endRoomCenter: {fileID: 269979489673919676, guid: b02f7938876384ad1b0b7f1b6192ca6c, type: 3}
   potentialRoomCenters:
-  - {fileID: 7253845275184895765, guid: 58923a0a871a04ea7816f762e0a94952, type: 3}
-  - {fileID: 5059840570708603671, guid: 39324664453bc453ba27a248584d442f, type: 3}
+  - {fileID: 6079364534180991449, guid: 702473cb5fa6c4eb4b3620a58bcb337f, type: 3}
+  - {fileID: 8176367160522435661, guid: ebd6c34c485df4f5d819ab2f1b3cb83d, type: 3}
+  - {fileID: 8627169633088889164, guid: 4b5d663c3e51746148188d13901d9cf9, type: 3}
