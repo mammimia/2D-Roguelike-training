@@ -12,8 +12,6 @@ public class CameraController : MonoBehaviour
 
     public Camera mainCamera, bigMapCamera;
 
-    private bool isMapActive;
-
     private void Awake()
     {
         instance = this;
@@ -31,8 +29,10 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
         }
 
-        if(Input.GetKeyDown(KeyCode.M)){
-            if(!LevelManager.instance.isPaused){
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!LevelManager.instance.isPaused)
+            {
                 bool isMapCameraActive = bigMapCamera.enabled;
 
                 bigMapCamera.enabled = !isMapCameraActive;

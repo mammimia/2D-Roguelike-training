@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 
     public int currentCoins;
 
+    public bool isPaused;
+
     void Awake()
     {
         instance = this;
@@ -47,12 +49,14 @@ public class LevelManager : MonoBehaviour
             UIController.instance.pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             PlayerController.instance.canMove = true;
+            isPaused = false;
         }
         else
         {
             UIController.instance.pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             PlayerController.instance.canMove = false;
+            isPaused = true;
         }
     }
 
