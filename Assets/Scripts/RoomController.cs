@@ -12,6 +12,8 @@ public class RoomController : MonoBehaviour
     [HideInInspector]
     public bool isActive;
 
+    public GameObject mapHider;
+
     void Start()
     {
 
@@ -48,6 +50,7 @@ public class RoomController : MonoBehaviour
             }
 
             isActive = true;
+            mapHider.SetActive(false);
         }
     }
 
