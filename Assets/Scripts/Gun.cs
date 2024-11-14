@@ -10,14 +10,9 @@ public class Gun : MonoBehaviour
     public float timeBetweenShots;
     private float shotCooldown;
 
+    public string gunName;
+    public Sprite gunUI;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused)

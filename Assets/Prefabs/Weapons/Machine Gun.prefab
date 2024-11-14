@@ -101,6 +101,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 745898425150462367, guid: 9201c4302866f4ae989d591108f7c36b, type: 3}
   firePoint: {fileID: 2640858511231159765}
   timeBetweenShots: 0.2
+  gunName: Machine Gun
+  gunUI: {fileID: -2172343002418747524, guid: f72804754a2106a4884d758772ef2a02, type: 3}
 --- !u!1 &5478995873183681661
 GameObject:
   m_ObjectHideFlags: 0

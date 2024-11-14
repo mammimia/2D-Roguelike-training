@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         mainCamera = Camera.main;
         activeMoveSpeed = moveSpeed;
+        UIController.instance.switchGunVisuals(availableGuns[currentGunIndex].gunUI, availableGuns[currentGunIndex].gunName);
     }
 
     // Update is called once per frame
@@ -157,7 +158,9 @@ public class PlayerController : MonoBehaviour
             gun.gameObject.SetActive(false);
         }
 
-        availableGuns[currentGunIndex].gameObject.SetActive(true);
+        Gun newGun = availableGuns[currentGunIndex];
+        newGun.gameObject.SetActive(true);
+        UIController.instance.switchGunVisuals(newGun.gunUI, newGun.gunName);
     }
 
     public bool isDashing()

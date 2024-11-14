@@ -23,6 +23,9 @@ public class UIController : MonoBehaviour
 
     public GameObject miniMap, bigMapText;
 
+    public Image currentGunImage;
+    public Text gunName;
+
     private void Awake()
     {
         instance = this;
@@ -81,5 +84,11 @@ public class UIController : MonoBehaviour
     public void resume()
     {
         LevelManager.instance.pauseUnpause();
+    }
+
+    public void switchGunVisuals(Sprite gunSprite, string gunName)
+    {
+        currentGunImage.sprite = gunSprite;
+        this.gunName.text = gunName;
     }
 }
