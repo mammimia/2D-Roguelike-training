@@ -39,6 +39,8 @@ public class CameraController : MonoBehaviour
                 mainCamera.enabled = isMapCameraActive;
                 PlayerController.instance.canMove = !isMapCameraActive;
                 Time.timeScale = !isMapCameraActive ? 1f : 0f;
+                UIController.instance.miniMap.SetActive(!isMapCameraActive);
+                UIController.instance.bigMapText.SetActive(isMapCameraActive);
             }
         }
     }

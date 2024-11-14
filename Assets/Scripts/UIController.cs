@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public GameObject miniMap, bigMapText;
+
     private void Awake()
     {
         instance = this;
