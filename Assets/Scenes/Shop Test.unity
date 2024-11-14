@@ -130,26 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1748606792, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 352.8633
-      objectReference: {fileID: 0}
-    - target: {fileID: 1748606792, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 222.679
-      objectReference: {fileID: 0}
-    - target: {fileID: 1748606792, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 752.2833
-      objectReference: {fileID: 0}
-    - target: {fileID: 1748606792, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 402.8955
-      objectReference: {fileID: 0}
-    - target: {fileID: 1748606793, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_Color.a
-      value: 0.5019608
-      objectReference: {fileID: 0}
     - target: {fileID: 10337607042212744, guid: deb950ddbe46a48708462338e67d134e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -161,10 +141,6 @@ PrefabInstance:
     - target: {fileID: 10337607747645179, guid: deb950ddbe46a48708462338e67d134e, type: 3}
       propertyPath: m_Name
       value: UI Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 10337607747645179, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 10337607747645183, guid: deb950ddbe46a48708462338e67d134e, type: 3}
       propertyPath: m_Pivot.x
@@ -249,18 +225,6 @@ PrefabInstance:
     - target: {fileID: 10337607747645183, guid: deb950ddbe46a48708462338e67d134e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 10337607876035788, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.593
-      objectReference: {fileID: 0}
-    - target: {fileID: 10337607876035788, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 10337607876035788, guid: deb950ddbe46a48708462338e67d134e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.593
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb950ddbe46a48708462338e67d134e, type: 3}
