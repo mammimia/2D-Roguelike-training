@@ -1673,6 +1673,7 @@ MonoBehaviour:
   waitToLoad: 4
   nextLevel: Level Test
   currentCoins: 0
+  isPaused: 0
 --- !u!1 &7252619263388759139
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
 
     public List<Gun> availableGuns = new List<Gun>();
-    private int currentGunIndex;
+    [HideInInspector]
+    public int currentGunIndex;
 
     private void Awake()
     {
