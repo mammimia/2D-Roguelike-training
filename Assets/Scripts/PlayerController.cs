@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
+    public List<Gun> availableGuns = new List<Gun>();
+    private int currentGunIndex;
+
     private void Awake()
     {
         instance = this;
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
             rotatePlayer();
             rotateGunArm();
             handleDash();
+            handleGunSwitch();
         }
         else
         {
@@ -132,6 +136,28 @@ public class PlayerController : MonoBehaviour
         {
             dashCooldownCounter -= Time.deltaTime;
         }
+    }
+
+    void handleGunSwitch()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (availableGuns.Count > 0)
+            {
+                currentGunIndex = (currentGunIndex + 1) % availableGuns.Count;
+                switchGun();
+            }
+        }
+    }
+
+    public void switchGun()
+    {
+        foreach (Gun gun in availableGuns)
+        {
+            gun.gameObject.SetActive(false);
+        }
+
+        availableGuns[currentGunIndex].gameObject.SetActive(true);
     }
 
     public bool isDashing()
