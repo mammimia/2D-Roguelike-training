@@ -23,30 +23,23 @@ public class Gun : MonoBehaviour
         if (PlayerController.instance.canMove && !LevelManager.instance.isPaused)
         {
             handleShooting();
-
         }
     }
 
     void handleShooting()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            shotCooldown = timeBetweenShots;
-            AudioManager.instance.PlaySFX(12);
-        }
-
-        if (Input.GetMouseButton(0))
+        if (shotCooldown > 0)
         {
             shotCooldown -= Time.deltaTime;
-
-            if (shotCooldown <= 0)
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
             {
-                shotCooldown = timeBetweenShots;
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                shotCooldown = timeBetweenShots;
                 AudioManager.instance.PlaySFX(12);
             }
         }
     }
-
 }
