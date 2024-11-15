@@ -22,6 +22,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        currentCoins = PlayerTracker.instance.currentCoins;
+
         UIController.instance.coinText.text = currentCoins.ToString();
     }
 
@@ -39,6 +41,11 @@ public class LevelManager : MonoBehaviour
         PlayerController.instance.canMove = false;
         UIController.instance.startFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
+
+        PlayerTracker.instance.currentCoins = currentCoins;
+        PlayerTracker.instance.currentHealth = PlayerHealthController.instance.currentHealth;
+        PlayerTracker.instance.maxHealth = PlayerHealthController.instance.maxHealth;
+
         SceneManager.LoadScene(nextLevel);
     }
 

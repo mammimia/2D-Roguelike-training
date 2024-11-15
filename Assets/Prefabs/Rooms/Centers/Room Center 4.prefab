@@ -2407,15 +2407,15 @@ PrefabInstance:
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998662720724}
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998135673971}
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998754861831}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
 --- !u!1 &5958613392154818129 stripped
@@ -2548,15 +2548,15 @@ PrefabInstance:
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998135673971}
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998754861831}
     - target: {fileID: 3310818170427424872, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
       propertyPath: patrolPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1169535998662720724}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97307db8a4b44b30b08c6732166964c, type: 3}
 --- !u!4 &5958613391982903640 stripped

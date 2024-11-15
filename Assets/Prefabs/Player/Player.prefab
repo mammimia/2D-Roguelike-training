@@ -401,8 +401,6 @@ MonoBehaviour:
   canMove: 1
   availableGuns:
   - {fileID: 3569770756455722560}
-  - {fileID: 0}
-  - {fileID: 0}
   currentGunIndex: 0
 --- !u!58 &513753649566883657
 CircleCollider2D:
