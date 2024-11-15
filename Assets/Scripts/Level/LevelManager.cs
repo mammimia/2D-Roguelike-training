@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        PlayerController.instance.transform.position = Vector3.zero;
+        PlayerController.instance.canMove = true;
+
         currentCoins = PlayerTracker.instance.currentCoins;
 
         UIController.instance.coinText.text = currentCoins.ToString();

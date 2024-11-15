@@ -23,9 +23,6 @@ public class PlayerController : MonoBehaviour
     public Transform gunArm;
     public Animator anim;
 
-
-    private Camera mainCamera;
-
     public SpriteRenderer body;
 
     [HideInInspector]
@@ -38,12 +35,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = Camera.main;
         activeMoveSpeed = moveSpeed;
         UIController.instance.switchGunVisuals(availableGuns[currentGunIndex].gunUI, availableGuns[currentGunIndex].gunName);
     }
@@ -54,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             mousePosition = Input.mousePosition;
-            screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
+            screenPoint = CameraController.instance.mainCamera.WorldToScreenPoint(transform.localPosition);
 
             movePlayer();
             animatePlayer();

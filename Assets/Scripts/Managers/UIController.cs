@@ -33,6 +33,8 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        currentGunImage.sprite = PlayerController.instance.availableGuns[PlayerController.instance.currentGunIndex].gunUI;
+        gunName.text = PlayerController.instance.availableGuns[PlayerController.instance.currentGunIndex].gunName;
     }
 
     void Update()
