@@ -28,6 +28,10 @@ public class CharacterSelector : MonoBehaviour
             gameObject.SetActive(false);
 
             CameraController.instance.target = newPlayer.transform;
+
+            CharacterSelectManager.instance.activePlayer = newPlayer;
+            CharacterSelectManager.instance.activeCharSelector.gameObject.SetActive(true);
+            CharacterSelectManager.instance.activeCharSelector = this;
         }
     }
 
