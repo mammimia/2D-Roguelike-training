@@ -11,7 +11,11 @@ public class LevelGenerator : MonoBehaviour
     public int minDistanceToShop;
     public int maxDistanceToShop;
 
-    public Color startColor, endColor, shopColor;
+    public bool includeGunRoom;
+    public int minDistanceToGunRoom;
+    public int maxDistanceToGunRoom;
+
+    public Color startColor, endColor, shopColor, gunRoomColor;
 
     public Transform generatorPoint;
 
@@ -30,13 +34,13 @@ public class LevelGenerator : MonoBehaviour
 
     public LayerMask roomLayer;
 
-    private GameObject endRoom, shopRoom;
+    private GameObject endRoom, shopRoom, gunRoom;
     private List<GameObject> roomLayoutList = new List<GameObject>();
     private List<GameObject> generatedRoomOutlines = new List<GameObject>();
 
     public RoomPrefabs roomLayouts;
 
-    public RoomCenter startRoomCenter, endRoomCenter, shopRoomCenter;
+    public RoomCenter startRoomCenter, endRoomCenter, shopRoomCenter, gunRoomCenter;
     public List<RoomCenter> potentialRoomCenters;
     private Dictionary<int, GameObject> layoutMap;
 
@@ -96,6 +100,15 @@ public class LevelGenerator : MonoBehaviour
             createRoomOutline(shopRoom.transform.position);
         }
 
+        if (includeGunRoom)
+        {
+            int gunRoomPosition = Random.Range(minDistanceToShop, maxDistanceToShop + 1);
+            gunRoom = roomLayoutList[gunRoomPosition];
+            roomLayoutList.RemoveAt(gunRoomPosition);
+            gunRoom.GetComponent<SpriteRenderer>().color = gunRoomColor;
+            createRoomOutline(gunRoom.transform.position);
+        }
+
         // Create room outlines
         createRoomOutline(Vector3.zero);
 
@@ -126,6 +139,12 @@ public class LevelGenerator : MonoBehaviour
             if (includeShop && outline.transform.position == shopRoom.transform.position)
             {
                 roomCenter = Instantiate(shopRoomCenter, outline.transform.position, Quaternion.identity);
+                shouldGenerateCenter = false;
+            }
+
+            if (includeGunRoom && outline.transform.position == gunRoom.transform.position)
+            {
+                roomCenter = Instantiate(gunRoomCenter, outline.transform.position, Quaternion.identity);
                 shouldGenerateCenter = false;
             }
 
