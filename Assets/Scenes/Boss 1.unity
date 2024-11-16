@@ -7131,6 +7131,72 @@ Transform:
   m_Father: {fileID: 1073428939}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1484128904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470440, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470442, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_Name
+      value: Level Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276716412672470442, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+--- !u!1 &1484128905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6276716412672470442, guid: 6e6b25a2ee2e044eb984174c20880562, type: 3}
+  m_PrefabInstance: {fileID: 1484128904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517577322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7505,7 +7571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036558114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1198516, y: -0.69166327, z: -0.010559082}
+  m_LocalPosition: {x: 0, y: 0, z: -0.010559082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7592,6 +7658,11 @@ MonoBehaviour:
   currentAction: 0
   moveDirection: {x: 0, y: 0}
   theRB: {fileID: 2036558116}
+  currentHealth: 200
+  maxHealth: 1000
+  deathEffect: {fileID: 3619768910943693110, guid: 7335bb10c2d94452cbe07df1bd43b12a, type: 3}
+  hitEffect: {fileID: 4899328658703301139, guid: d0ec7b84597b7444bbf28975824a7368, type: 3}
+  levelExit: {fileID: 1484128905}
 --- !u!1001 &7252619263077458578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7649,7 +7720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252619263353332826, guid: d37095e26a8654f429444f6dfbde2545, type: 3}
       propertyPath: nextLevel
-      value: Level 2
+      value: Victory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37095e26a8654f429444f6dfbde2545, type: 3}

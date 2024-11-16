@@ -14,6 +14,12 @@ public class Boss : MonoBehaviour
     public Vector2 moveDirection;
     public Rigidbody2D theRB;
 
+    public int currentHealth;
+    public int maxHealth;
+
+    public GameObject deathEffect, hitEffect;
+    public GameObject levelExit;
+
     private void Awake()
     {
         instance = this;
@@ -98,6 +104,26 @@ public class Boss : MonoBehaviour
             }
         }
     }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        Instantiate(hitEffect, transform.position, transform.rotation);
+
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            levelExit.SetActive(true);
+
+            if (Vector3.Distance(PlayerController.instance.transform.position, levelExit.transform.position) < 2f)
+            {
+                levelExit.transform.position += new Vector3(4f, 0f, 0f);
+            }
+        }
+    }
+
 }
 
 
