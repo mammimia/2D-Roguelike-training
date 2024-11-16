@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
 
     public Camera mainCamera, bigMapCamera;
 
+    public bool isBossRoom;
+
     private void Awake()
     {
         instance = this;
@@ -19,7 +21,10 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-
+        if (isBossRoom)
+        {
+            target = PlayerController.instance.transform;
+        }
     }
 
     void Update()
@@ -29,7 +34,7 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && !isBossRoom)
         {
             if (!LevelManager.instance.isPaused)
             {
