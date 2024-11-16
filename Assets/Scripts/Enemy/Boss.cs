@@ -29,6 +29,9 @@ public class Boss : MonoBehaviour
     void Start()
     {
         actionCounter = actions[currentAction].actionLength;
+
+        UIController.instance.bossHealthSlider.maxValue = maxHealth;
+        UIController.instance.bossHealthSlider.value = currentHealth;
     }
 
     // Update is called once per frame
@@ -121,7 +124,11 @@ public class Boss : MonoBehaviour
             {
                 levelExit.transform.position += new Vector3(4f, 0f, 0f);
             }
+
+            UIController.instance.bossHealthSlider.gameObject.SetActive(false);
         }
+
+        UIController.instance.bossHealthSlider.value = currentHealth;
     }
 
 }

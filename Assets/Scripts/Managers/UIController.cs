@@ -26,6 +26,7 @@ public class UIController : MonoBehaviour
     public Image currentGunImage;
     public Text gunName;
 
+    public Slider bossHealthSlider;
     private void Awake()
     {
         instance = this;
